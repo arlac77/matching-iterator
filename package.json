@@ -1,0 +1,7 @@
+{
+    "name" : "matching-iterator",
+    "main": "./src/matching-iterator.mjs",
+    "exports": {
+      ".": "./src/matching-iterator.mjs"
+    }
+}
