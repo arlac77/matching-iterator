@@ -1,7 +1,47 @@
 {
-    "name" : "matching-iterator",
-    "main": "./src/matching-iterator.mjs",
-    "exports": {
-      ".": "./src/matching-iterator.mjs"
+  "name": "matching-iterator",
+  "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "main": "./src/matching-iterator.mjs",
+  "exports": {
+    ".": "./src/matching-iterator.mjs"
+  },
+  "description": "glob style matching on iterables",
+  "contributors": [
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
     }
+  ],
+  "license": "BSD-2-Clause",
+  "scripts": {
+    "cover": "--overwrite-- c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
+    "test": "ava --timeout 2m",
+    "docs": "--overwrite-- documentation readme ./src/matching-iterator.mjs --section=API",
+    "lint": "--overwrite-- documentation lint ./src/matching-iterator.mjs"
+  },
+  "devDependencies": {
+    "c8": "^7.1.2",
+    "ava": "^3.8.2",
+    "documentation": "^13.0.0",
+    "semantic-release": "^17.0.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arlac77/matching-iterator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arlac77/matching-iterator/issues"
+  },
+  "homepage": "https://github.com/arlac77/matching-iterator#readme",
+  "template": {
+    "inheritFrom": [
+      "arlac77/template-arlac77-github",
+      "arlac77/template-esm-only"
+    ]
+  }
 }
