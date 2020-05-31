@@ -25,6 +25,8 @@ for await (const r of matcher([
 }
 ```
 
+# API
+
 # install
 
 With [npm](http://npmjs.org) do:
