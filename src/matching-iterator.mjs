@@ -37,6 +37,36 @@ export function* matcher(entries, patterns, options = {}) {
   }
 }
 
+export async function* asyncMatcher(entries, patterns, options = {}) {
+  if (
+    patterns === undefined ||
+    (Array.isArray(patterns) && patterns.length === 0)
+  ) {
+    yield* entries;
+    return;
+  }
+
+  const regex = compile(
+    Array.isArray(patterns) ? patterns : [patterns],
+    options
+  );
+
+  if (options.name) {
+    const name = options.name;
+    for await (const entry of entries) {
+      if (entry[name].match(regex)) {
+        yield entry;
+      }
+    }
+  } else {
+    for await (const entry of entries) {
+      if (entry.match(regex)) {
+        yield entry;
+      }
+    }
+  }
+}
+
 function compileSimple(input) {
   let output = "";
 
