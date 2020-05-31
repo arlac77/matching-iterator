@@ -7,7 +7,7 @@
  * @param {boolean} options.caseSensitive defaults to true
  * @return {Iterator<string>} filtered entries
  */
-export function* match(entries, patterns, options = {}) {
+export function* matcher(entries, patterns, options = {}) {
   if (
     patterns === undefined ||
     (Array.isArray(patterns) && patterns.length === 0)

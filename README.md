@@ -9,3 +9,31 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/arlac77/matching-iterator/badge.svg)](https://snyk.io/test/github/arlac77/matching-iterator)
 [![codecov.io](http://codecov.io/github/arlac77/matching-iterator/coverage.svg?branch=master)](http://codecov.io/github/arlac77/matching-iterator?branch=master)
 [![Coverage Status](https://coveralls.io/repos/arlac77/matching-iterator/badge.svg)](https://coveralls.io/r/arlac77/matching-iterator)
+
+# matching-iterator
+
+glob style matching on iterables
+
+# usage
+
+```js
+import { matcher } from "matching-iterator";
+
+for await (const r of matcher([
+    { name: "a" },{ name: "b" }], "a*", { name: "name" })) {
+  console.log(r);
+}
+```
+
+# install
+
+With [npm](http://npmjs.org) do:
+
+```shell
+npm install matching-iterator
+
+```
+
+# license
+
+BSD-2-Clause

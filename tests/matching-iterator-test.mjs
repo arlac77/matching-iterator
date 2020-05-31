@@ -1,8 +1,8 @@
 import test from "ava";
-import { match } from "matching-iterator";
+import { matcher } from "matching-iterator";
 
 async function mt(t, pattern, options, entries, result) {
-  const r = [...match(entries, pattern, options)];
+  const r = [...matcher(entries, pattern, options)];
   //console.log(">>", r);
   t.deepEqual(r, result);
 }
@@ -13,6 +13,12 @@ mt.title = (providedTitle = "", pattern, options, entries, result) =>
 test(mt, undefined, undefined, ["a", "b", "c"], ["a", "b", "c"]);
 test(mt, [], undefined, ["a", "b", "c"], ["a", "b", "c"]);
 test(mt, "a", undefined, ["a", "b", "c"], ["a"]);
+
+test(mt, "a", { name: "x"}, [{x:"a", extra: true}, {x:"b"}, {x:"c"}], [{x:"a", extra: true}]);
+
+test(mt, "a", {}, ["a", "A", "c"], ["a"]);
+test(mt, "a", { caseSensitive: false }, ["a", "A", "c"], ["a", "A"]);
+
 test(mt, ["a", "b"], undefined, ["a", "b", "c"], ["a", "b"]);
 
 test(mt, "*", undefined, ["a", "b", "c"], ["a", "b", "c"]);
