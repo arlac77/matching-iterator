@@ -77,14 +77,9 @@ function compileSimple(input) {
         output += "\\.";
         break;
       case "*":
+        output += ".*";
         if (input[i + 1] === "*") {
-          output += ".*";
-          i++;
-          if (input[i + 1] === "/") {
-            i++;
-          }
-        } else {
-          output += ".*";
+          i += input[i + 2] === "/" ? 2 : 1;
         }
         break;
       case "/":
