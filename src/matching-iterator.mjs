@@ -105,11 +105,8 @@ export function compile(patterns, options) {
     }
   }
 
-  const source = "^" + parts.join("") + "$";
-
-  //console.log("P", patterns, source, options.caseSensitive);
   return new RegExp(
-    source,
+    "^" + parts.join("") + "$",
     options.caseSensitive === undefined || options.caseSensitive
       ? undefined
       : "i"
