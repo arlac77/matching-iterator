@@ -10,7 +10,7 @@ async function* makeAsync(entries, time = 10) {
 async function mt(t, pattern, options, entries, result) {
   const r = [...matcher(entries, pattern, options)];
   //console.log(">>", r);
-  t.deepEqual(r, result, "ssync result");
+  t.deepEqual(r, result, "sync result");
 
   const matched = [];
   for await (const m of asyncMatcher(makeAsync(entries), pattern, options)) {
