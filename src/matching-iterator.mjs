@@ -1,5 +1,5 @@
 /**
- * Match entries against glob pattern
+ * Match entries against glob pattern.
  * @param {Iterator<string|Object>} entries
  * @param {string[]|string} patterns
  * @param {Object} options
