@@ -20,9 +20,8 @@ async function mt(t, pattern, options, entries, result) {
 }
 
 mt.title = (providedTitle = "", pattern, options, entries, result) =>
-  `match ${providedTitle} ${pattern}${
-    options ? JSON.stringify(options) + " " : ""
-  } ${entries}`.trim();
+  `match ${providedTitle} ${pattern}${options ? JSON.stringify(options) + " " : ""
+    } ${entries}`.trim();
 
 test(mt, undefined, undefined, ["a", "b", "c"], ["a", "b", "c"]);
 test(mt, [], undefined, ["a", "b", "c"], ["a", "b", "c"]);
@@ -68,6 +67,26 @@ test(
   [".github/workflows/ci.yml"]
 );
 
+test(
+  mt,
+  ["!tests/*.mjs"],
+  undefined,
+  ["a.mjs", "b.mjs", "tests/c.mjs"],
+  ["a.mjs", "b.mjs"]
+);
+
+test(
+  mt,
+  ["**/package.json", "!tests/**/*"],
+  undefined,
+  [
+    ".gitignore",
+    "package.json",
+    "tests/rollup.config.mjs"
+  ],
+  ["package.json"]
+);
+
 test.skip(
   mt,
   ["**/package.json", "!test/**/*", "!tests/**/*"],
@@ -81,10 +100,3 @@ test.skip(
   ["package.json"]
 );
 
-test.skip(
-  mt,
-  ["**/*.mjs", "!tests/*.mjs"],
-  undefined,
-  ["a.mjs", "b.mjs", "tests/c.mjs"],
-  ["a.mjs", "b.mjs"]
-);
