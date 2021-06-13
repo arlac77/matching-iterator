@@ -35,7 +35,7 @@ for await (const r of matcher([
 
 ## matcher
 
-Match entries against glob pattern
+Match entries against glob pattern.
 
 ### Parameters
 
