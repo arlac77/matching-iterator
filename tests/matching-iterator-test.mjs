@@ -20,11 +20,13 @@ async function mt(t, pattern, options, entries, result) {
 }
 
 mt.title = (providedTitle = "", pattern, options, entries, result) =>
-  `match ${providedTitle} ${pattern}${options ? JSON.stringify(options) + " " : ""
+  `match ${providedTitle} ${JSON.stringify(pattern)}${options ? JSON.stringify(options) + " " : ""
     } ${entries}`.trim();
 
 test(mt, undefined, undefined, ["a", "b", "c"], ["a", "b", "c"]);
 test(mt, [], undefined, ["a", "b", "c"], ["a", "b", "c"]);
+test(mt, "", undefined, ["a", "b", "c"], ["a", "b", "c"]);
+test(mt, [""], undefined, ["a", "b", "c"], ["a", "b", "c"]);
 test(mt, "a", undefined, ["a", "b", "c"], ["a"]);
 
 test(
