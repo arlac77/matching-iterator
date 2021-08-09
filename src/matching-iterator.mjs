@@ -10,7 +10,9 @@
 export function* matcher(entries, patterns, options = {}) {
   if (
     patterns === undefined ||
-    (Array.isArray(patterns) && patterns.length === 0)
+    (Array.isArray(patterns) &&
+      (patterns.length === 0 || patterns[0].length === 0)) ||
+    patterns.length === 0
   ) {
     yield* entries;
     return;
@@ -40,7 +42,9 @@ export function* matcher(entries, patterns, options = {}) {
 export async function* asyncMatcher(entries, patterns, options = {}) {
   if (
     patterns === undefined ||
-    (Array.isArray(patterns) && patterns.length === 0)
+    (Array.isArray(patterns) &&
+      (patterns.length === 0 || patterns[0].length === 0)) ||
+    patterns.length === 0
   ) {
     yield* entries;
     return;
