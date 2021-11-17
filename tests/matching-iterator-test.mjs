@@ -20,8 +20,9 @@ async function mt(t, pattern, options, entries, result) {
 }
 
 mt.title = (providedTitle = "", pattern, options, entries, result) =>
-  `match ${providedTitle} ${JSON.stringify(pattern)}${options ? JSON.stringify(options) + " " : ""
-    } ${entries}`.trim();
+  `match ${providedTitle} ${JSON.stringify(pattern)}${
+    options ? JSON.stringify(options) + " " : ""
+  } ${entries}`.trim();
 
 test(mt, undefined, undefined, ["a", "b", "c"], ["a", "b", "c"]);
 test(mt, [], undefined, ["a", "b", "c"], ["a", "b", "c"]);
@@ -81,24 +82,20 @@ test(
   mt,
   ["**/package.json", "!tests/**/*"],
   undefined,
-  [
-    ".gitignore",
-    "package.json",
-    "tests/rollup.config.mjs"
-  ],
+  [".gitignore", "package.json", "tests/rollup.config.mjs"],
   ["package.json"]
 );
 
 test.skip(
   mt,
-  ["**/package.json", "!test/**/*", "!tests/**/*"],
+  ["**/e*", "!d1/*"], //, "!d2/**/*"],
   undefined,
   [
-    ".gitignore",
-    "package.json",
-    "tests/rollup.config.mjs",
-    "test/fixtures/package.json"
+    //  ".e1",
+    "e2",
+    "e3",
+    "d1/e4"
+    //  "d2/d3/e5"
   ],
-  ["package.json"]
+  ["e2", "e3"]
 );
-
