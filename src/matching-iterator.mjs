@@ -1,9 +1,9 @@
 /**
  * Match entries against glob pattern.
- * @param {Iterator<string|Object>} entries
- * @param {string[]|string} patterns
+ * @param {Iterator<string|Object>} entries input
+ * @param {string[]|string} patterns filter to apply
  * @param {Object} options
- * @param {string|Function} options.name
+ * @param {string|Function} options.name name of the name attribute
  * @param {boolean} options.caseSensitive defaults to true
  * @return {Iterator<string>} filtered entries
  */
