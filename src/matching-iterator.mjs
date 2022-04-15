@@ -55,6 +55,8 @@ export async function* asyncMatcher(entries, patterns, options = {}) {
     options
   );
 
+  //console.log(regex);
+
   if (options.name) {
     const name = options.name;
     for await (const entry of entries) {
@@ -75,32 +77,46 @@ function compileSimple(input) {
   let output = "";
 
   for (let i = 0; i < input.length; i++) {
-    const s = input[i];
-    switch (s) {
-      case ".":
-        output += "\\.";
-        break;
+    const c = input[i];
+
+    switch (c) {
       case "*":
-        output += ".*";
-        if (input[i + 1] === "*") {
-          i += input[i + 2] === "/" ? 2 : 1;
+        if (input.substring(i, i + 3) === "**/") {
+          output += "((?:[^/]*(?:/|$))*)";
+          i += 2;
+        } else {
+          output += ".*";
         }
         break;
-      case "/":
-        output += "\\/";
+      case ".":
+        output += "\\" + c;
         break;
       default:
-        output += s;
+        output += c;
     }
   }
   return output;
 }
 
+/**
+ * @see https://stackoverflow.com/questions/869809/combine-regexp
+ * @param patterns
+ * @param options
+ * @returns
+ */
 export function compile(patterns, options) {
   const parts = [];
 
+  let j = "";
+  let begin = "^";
+  let end = "$";
+
   for (const pattern of patterns) {
     if (pattern[0] === "!") {
+      begin = "^(";
+      end = ")$";
+      j = ")(?=";
+
       parts.push("((?!" + compileSimple(pattern.substring(1)) + ").)*");
     } else {
       parts.push(
@@ -110,9 +126,7 @@ export function compile(patterns, options) {
   }
 
   return new RegExp(
-    "^" + parts.join("") + "$",
-    options.caseSensitive === undefined || options.caseSensitive
-      ? undefined
-      : "i"
+    begin + parts.join(j) + end,
+    options.caseSensitive === undefined || options.caseSensitive ? "ms" : "ims"
   );
 }

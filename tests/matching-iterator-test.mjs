@@ -9,7 +9,6 @@ async function* makeAsync(entries, time = 10) {
 
 async function mt(t, pattern, options, entries, result) {
   const r = [...matcher(entries, pattern, options)];
-  //console.log(">>", r);
   t.deepEqual(r, result, "sync result");
 
   const matched = [];
@@ -55,6 +54,8 @@ test(
   ["apple", "citrus"]
 );
 test(mt, "!*.c", undefined, ["a.a", "a.b", "a.c"], ["a.a", "a.b"]);
+test(mt, "**/*", undefined, ["a/b", "a/b/c", "a"], ["a/b", "a/b/c", "a"]);
+
 test(
   mt,
   "**/rollup.config.*js",
@@ -86,9 +87,9 @@ test(
   ["package.json"]
 );
 
-test.skip(
+test(
   mt,
-  ["**/e*", "!d1/*"], //, "!d2/**/*"],
+  ["**/e*"], //, "!d1/*"], //, "!d2/**/*"],
   undefined,
   [
     //  ".e1",
@@ -97,5 +98,5 @@ test.skip(
     "d1/e4"
     //  "d2/d3/e5"
   ],
-  ["e2", "e3"]
+  ["e2", "e3", "d1/e4"]
 );
