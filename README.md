@@ -32,6 +32,8 @@ for await (const r of matcher([
 
 *   [matcher](#matcher)
     *   [Parameters](#parameters)
+*   [compile](#compile)
+    *   [Parameters](#parameters-1)
 
 ## matcher
 
@@ -47,6 +49,15 @@ Match entries against glob pattern.
     *   `options.caseSensitive` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** defaults to true
 
 Returns **Iterator<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** filtered entries
+
+## compile
+
+*   **See**: <https://stackoverflow.com/questions/869809/combine-regexp>
+
+### Parameters
+
+*   `patterns`  
+*   `options`  
 
 # install
 
