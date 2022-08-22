@@ -56,8 +56,8 @@ Returns **Iterator<[string](https://developer.mozilla.org/docs/Web/JavaScript/Re
 
 ### Parameters
 
-*   `patterns`  
-*   `options`  
+*   `patterns` &#x20;
+*   `options` &#x20;
 
 # install
 
