@@ -18,10 +18,7 @@ export function* matcher(entries, patterns, options = {}) {
     return;
   }
 
-  const regex = compile(
-    Array.isArray(patterns) ? patterns : [patterns],
-    options
-  );
+  const regex = compile(patterns, options);
 
   if (options.name) {
     const name = options.name;
@@ -50,10 +47,7 @@ export async function* asyncMatcher(entries, patterns, options = {}) {
     return;
   }
 
-  const regex = compile(
-    Array.isArray(patterns) ? patterns : [patterns],
-    options
-  );
+  const regex = compile(patterns, options);
 
   //console.log(regex);
 
@@ -100,18 +94,19 @@ function compileSimple(input) {
 
 /**
  * @see https://stackoverflow.com/questions/869809/combine-regexp
- * @param patterns
- * @param options
+ * @param {string|string[]} patterns
+ * @param {Object} options
  * @returns
  */
 export function compile(patterns, options) {
+
   const parts = [];
 
   let j = "";
   let begin = "^";
   let end = "$";
 
-  for (const pattern of patterns) {
+  for (const pattern of Array.isArray(patterns) ? patterns : [patterns]) {
     if (pattern[0] === "!") {
       begin = "^(";
       end = ")$";
