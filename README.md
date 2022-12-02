@@ -56,8 +56,8 @@ Returns **Iterator<[string](https://developer.mozilla.org/docs/Web/JavaScript/Re
 
 ### Parameters
 
-*   `patterns` &#x20;
-*   `options` &#x20;
+*   `patterns` **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) | [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>)**&#x20;
+*   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**&#x20;
 
 # install
 
