@@ -54,7 +54,7 @@ test(
   ["apple", "citrus"]
 );
 test(mt, "!*.c", undefined, ["a.a", "a.b", "a.c"], ["a.a", "a.b"]);
-test(mt, "**/*", undefined, ["a/b", "a/b/c", "a"], ["a/b", "a/b/c", "a"]);
+test(mt, "**/*", undefined, ["a-1/b", "a/b/c", "a"], ["a-1/b", "a/b/c", "a"]);
 
 test(
   mt,
