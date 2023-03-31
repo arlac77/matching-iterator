@@ -49,8 +49,6 @@ export async function* asyncMatcher(entries, patterns, options = {}) {
 
   const regex = compile(patterns, options);
 
-  //console.log(regex);
-
   if (options.name) {
     const name = options.name;
     for await (const entry of entries) {
@@ -96,10 +94,9 @@ function compileSimple(input) {
  * @see https://stackoverflow.com/questions/869809/combine-regexp
  * @param {string|string[]} patterns
  * @param {Object} options
- * @returns
+ * @returns globs copiled into regex
  */
 export function compile(patterns, options) {
-
   const parts = [];
 
   let j = "";
