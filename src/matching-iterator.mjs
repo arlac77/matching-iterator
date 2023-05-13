@@ -1,10 +1,10 @@
 /**
  * Match entries against glob pattern.
  * @param {Iterator<string|Object>} entries input
- * @param {string[]|string} patterns filter to apply
+ * @param {string[]|string|undefined} patterns filter to apply
  * @param {Object} options
- * @param {string|Function} options.name name of the name attribute
- * @param {boolean} options.caseSensitive defaults to true
+ * @param {string|Function} [options.name] name of the name attribute
+ * @param {boolean} [options.caseSensitive] defaults to true
  * @return {Iterator<string>} filtered entries
  */
 export function* matcher(entries, patterns, options = {}) {
@@ -92,7 +92,7 @@ function compileSimple(input) {
 
 /**
  * @see https://stackoverflow.com/questions/869809/combine-regexp
- * @param {string|string[]} patterns
+ * @param {string[]|string} patterns
  * @param {Object} options
  * @returns globs copiled into regex
  */
