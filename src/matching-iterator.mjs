@@ -3,17 +3,14 @@
  * @param {Iterator<string|Object>} entries input
  * @param {string[]|string|undefined} patterns filter to apply
  * @param {Object} options
- * @param {string|Function} [options.name] name of the name attribute
+ * @param {string} [options.name] name of the name attribute
  * @param {boolean} [options.caseSensitive] defaults to true
  * @return {Iterator<string>} filtered entries
  */
 export function* matcher(entries, patterns, options = {}) {
-  if (
-    patterns === undefined ||
-    (Array.isArray(patterns) &&
-      (patterns.length === 0 || patterns[0].length === 0)) ||
-    patterns.length === 0
-  ) {
+  if (patterns === undefined || patterns.length === 0 || (
+    Array.isArray(patterns) && patterns[0].length === 0
+  )) {
     yield* entries;
     return;
   }
@@ -37,12 +34,9 @@ export function* matcher(entries, patterns, options = {}) {
 }
 
 export async function* asyncMatcher(entries, patterns, options = {}) {
-  if (
-    patterns === undefined ||
-    (Array.isArray(patterns) &&
-      (patterns.length === 0 || patterns[0].length === 0)) ||
-    patterns.length === 0
-  ) {
+  if (patterns === undefined || patterns.length === 0 || (
+    Array.isArray(patterns) && patterns[0].length === 0
+  )) {
     yield* entries;
     return;
   }
