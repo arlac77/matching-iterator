@@ -2,7 +2,8 @@
   "name": "matching-iterator",
   "version": "0.0.0-semantic-release",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "exports": {
     ".": "./src/matching-iterator.mjs"
