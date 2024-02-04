@@ -34,6 +34,9 @@
     "semantic-release": "^23.0.0",
     "typescript": "^5.3.3"
   },
+  "engines": {
+    "node": ">=20.11.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arlac77/matching-iterator.git"
@@ -47,6 +50,7 @@
       "arlac77/template-arlac77-github",
       "arlac77/template-browser-ava",
       "arlac77/template-esm-only",
+      "arlac77/template-node-component",
       "arlac77/template-typescript"
     ]
   }
