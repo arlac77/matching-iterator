@@ -7,7 +7,7 @@
   },
   "exports": {
     ".": {
-      "types": "./types/index.d.ts",
+      "types": "./dist/matching-iterator.d.mts",
       "default": "./src/matching-iterator.mjs"
     }
   },
