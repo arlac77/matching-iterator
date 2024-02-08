@@ -5,6 +5,7 @@
     "access": "public",
     "provenance": true
   },
+  "types": "./dist/matching-iterator.d.mts",
   "exports": {
     ".": {
       "types": "./dist/matching-iterator.d.mts",
@@ -57,6 +58,5 @@
       "arlac77/template-node-component",
       "arlac77/template-typescript"
     ]
-  },
-  "types": "./dist/matching-iterator.d.mts"
+  }
 }
