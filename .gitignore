@@ -7,4 +7,4 @@ build
 *.dump
 *.node
 .test
-dist
+types
