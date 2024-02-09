@@ -5,7 +5,7 @@
  * @param {Object} options
  * @param {string} [options.name] name of the name attribute
  * @param {boolean} [options.caseSensitive] defaults to true
- * @return {Iterable<string>} filtered entries
+ * @return {Iterable<string|Object>} filtered entries
  */
 export function* matcher(entries, patterns, options = {}) {
   if (patterns === undefined || patterns.length === 0 || (
@@ -40,7 +40,7 @@ export function* matcher(entries, patterns, options = {}) {
  * @param {Object} options
  * @param {string} [options.name] name of the name attribute
  * @param {boolean} [options.caseSensitive] defaults to true
- * @return {AsyncGenerator<string>} filtered entries
+ * @return {AsyncGenerator<string|Object>} filtered entries
  */
 export async function* asyncMatcher(entries, patterns, options = {}) {
   if (patterns === undefined || patterns.length === 0 || (
