@@ -8,8 +8,8 @@
   "types": "./types/matching-iterator.d.mts",
   "exports": {
     ".": {
-      "types": "./types/matching-iterator.d.mts",
-      "default": "./src/matching-iterator.mjs"
+      "default": "./src/matching-iterator.mjs",
+      "types": "./types/matching-iterator.d.mts"
     }
   },
   "description": "glob style matching on iterables",
