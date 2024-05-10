@@ -1,6 +1,12 @@
 import test from "ava";
 import { matcher, asyncMatcher } from "matching-iterator";
 
+/**
+ * 
+ * @param {any[]} entries 
+ * @param {number} time
+ * @return {AsyncIterable<any>}
+ */
 async function* makeAsync(entries, time = 10) {
   for (const entry of entries) {
     yield new Promise(resolve => setTimeout(resolve(entry), time));
